@@ -1,0 +1,589 @@
+@use "sass:math";
+// Colors
+
+// Theme 1
+
+// Backgrounds
+
+$Very-dark-desaturated-blue-31: hsl(222, 26%, 31%);
+$Very-dark-desaturated-blue-20: hsl(223, 31%, 20%);
+$Very-dark-desaturated-blue-15: hsl(224, 36%, 15%);
+
+// Keys
+
+$Desaturated-dark-blue-49: hsl(225, 21%, 49%);
+$Desaturated-dark-blue-35: hsl(224, 28%, 35%);
+
+$Red: hsl(6, 63%, 50%);
+$Dark-red: hsl(6, 70%, 34%);
+
+$Light-grayish-orange: hsl(30, 25%, 89%);
+$Grayish-orange: hsl(28, 16%, 65%);
+
+// Text
+
+$Very-dark-grayish-blue: hsl(221, 14%, 31%);
+$White: hsl(0, 0%, 100%);
+
+// Theme 2
+
+// Backgrounds
+
+$Light-gray: hsl(0, 0%, 90%);
+$Grayish-red: hsl(0, 5%, 81%);
+$Very-light-gray: hsl(0, 0%, 93%);
+
+// Keys
+
+$Dark-moderate-cyan: hsl(185, 42%, 37%);
+$Very-dark-cyan: hsl(185, 58%, 25%);
+
+$Orange: hsl(25, 98%, 40%);
+$Dark-orange: hsl(25, 99%, 27%);
+
+$Light-grayish-yellow: hsl(45, 7%, 89%);
+$Dark-grayish-orange: hsl(35, 11%, 61%);
+
+// Text
+
+$Very-dark-grayish-yellow: hsl(60, 10%, 19%);
+$White: hsl(0, 0%, 100%);
+
+// Theme 3
+
+// Backgrounds
+
+$Very-dark-violet-9: hsl(268, 75%, 9%);
+$Very-dark-violet-12: hsl(268, 71%, 12%);
+
+// Keys
+
+$Dark-violet: hsl(281, 89%, 26%);
+$Vivid-magenta: hsl(285, 91%, 52%);
+
+$Pure-cyan: hsl(176, 100%, 44%);
+$Soft-cyan: hsl(177, 92%, 70%);
+
+$Very-dark-violet: hsl(268, 47%, 21%);
+$Dark-magenta: hsl(290, 70%, 36%);
+
+// Text
+
+$Light-yellow: hsl(52, 100%, 62%);
+$Very-dark-blue: hsl(198, 20%, 13%);
+$White: hsl(0, 0%, 100%);
+
+$Main-unit: 32;
+@font-face {
+  font-family: League Spartan;
+  src: url("../fonts/LeagueSpartan-VariableFont_wght.ttf");
+  font-weight: 700;
+}
+
+html {
+  font-family: "League Spartan";
+  font-size: #{$Main-unit}px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+%flex-column {
+  display: flex;
+  flex-direction: column;
+}
+%flex-align-center {
+  display: flex;
+  align-items: center;
+}
+%justify-center {
+  justify-content: center;
+}
+%slider-basic {
+  border: none;
+  cursor: pointer;
+}
+%slider-track {
+  @extend %slider-basic;
+  width: 100%;
+  height: 22px;
+  border-radius: 20px;
+  padding: 5%;
+}
+%slider-thumb {
+  @extend %slider-basic;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  appearance: none;
+  margin-top: 0px;
+}
+%transition {
+  transition: all 0.2s ease-in-out;
+}
+@mixin backgroundColor($theme) {
+  background-color: $theme !important;
+}
+@mixin fontColor($theme) {
+  color: $theme !important;
+}
+@mixin boxShadow($theme) {
+  box-shadow: 0px 2px 0px 2px $theme !important;
+}
+body {
+  @extend %flex-align-center;
+  @extend %transition;
+  position: relative;
+  background-color: $Very-dark-desaturated-blue-31;
+  min-height: 100vh;
+  
+  .container {
+    @extend %flex-column;
+    width: 100%;
+    padding: math.div(32px, 375px) * 100%;
+    gap: #{$Main-unit}px;
+    height: auto;
+    .calc-header {
+      @extend %flex-align-center;
+      justify-content: space-between;
+      .calc-title {
+        @extend %transition;
+        font-size: #{$Main-unit}px;
+        color: $Light-grayish-orange;
+        font-weight: 700;
+      }
+      .calc-switch {
+        @extend %flex-align-center;
+        font-size: #{$Main-unit - 20}px;
+        width: 45%;
+        gap: #{$Main-unit - 10}px;
+        & > span {
+          @extend %transition;
+          color: $Light-grayish-orange;
+          font-size: 14px;
+          margin-top: 15px;
+          font-weight: 700;
+        }
+        .calc-switch-wrapper {
+          @extend %flex-column;
+          gap: 5px;
+          .switch-indicators {
+            @extend %transition;
+            display: flex;
+            padding: 0 11%;
+            justify-content: space-between;
+            color: $Light-grayish-orange;
+          }
+          .theme-switch {
+            width: 100%;
+            appearance: none;
+            background-color: transparent;
+            outline: none;
+            &::-webkit-slider-runnable-track {
+              @extend %transition;
+              @extend %slider-track;
+              background: $Very-dark-desaturated-blue-20;
+            }
+            &::-webkit-slider-thumb {
+              @extend %transition;
+              @extend %slider-thumb;
+              background: $Red;
+            }
+            &:focus::-webkit-slider-runnable-track {
+              @extend %transition;
+              background: $Very-dark-desaturated-blue-31;
+            }
+            // &::-moz-range-track {
+            //   @extend %slider-track;
+            //   background: $Very-dark-desaturated-blue-20;
+            // }
+            // &::-moz-range-thumb {
+            //   @extend %slider-thumb;
+            //   background: $Red;
+            // }
+            // &::-ms-track {
+            //   width: 100%;
+            //   height: 27px;
+            //   cursor: pointer;
+            //   background: transparent;
+            //   border-color: transparent;
+            //   color: transparent;
+            // }
+            // &::-ms-fill-lower {
+            //   background: #3b13a9;
+            //   border: 0px solid #ffffff;
+            //   border-radius: 40px;
+            // }
+            // &::-ms-fill-upper {
+            //   background: #3b13a9;
+            //   border: 0px solid #ffffff;
+            //   border-radius: 40px;
+            //   box-shadow: 0px 0px 0px #ffffff;
+            // }
+            // &::-ms-thumb {
+            //   margin-top: 1px;
+            //   border: 1px solid #ff1919;
+            //   height: 20px;
+            //   width: 20px;
+            //   border-radius: 12px;
+            //   background: #ff3665;
+            //   cursor: pointer;
+            // }
+            // &:focus::-ms-fill-lower {
+            //   background: #3b13a9;
+            // }
+            // &:focus::-ms-fill-upper {
+            //   background: #3b13a9;
+            // }
+          }
+        }
+      }
+    }
+    .calc-display {
+      .display-content {
+        @extend %transition;
+        text-align: right;
+        background-color: $Very-dark-desaturated-blue-15;
+        padding: math.div(32px, 425px) * 100%;
+        border-radius: 10px;
+        color: $White;
+        font-weight: 700;
+        height: 12vh;
+      }
+    }
+    .calc-keyboard {
+      @extend %transition;
+      background-color: $Very-dark-desaturated-blue-20;
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+      padding: math.div(32px, 425px) * 100%;
+      .btn {
+        @extend %transition;
+        @extend %flex-align-center;
+        @extend %justify-center;
+        background-color: $Light-grayish-orange;
+        color: $Very-dark-grayish-blue;
+        font-weight: 700;
+        height: 42px;
+        border: none;
+        font-size: 22px;
+        border-radius: 7px;
+        box-shadow: 0px 2px 0px 2px $Grayish-orange;
+        transition: all 0.1s ease-in-out;
+        cursor: pointer;
+        &:active {
+          box-shadow: none !important;
+          transform: scaleY(0.999);
+        }
+      }
+      .btn-x1 {
+        flex: 0 1 22%;
+        margin-bottom: #{$Main-unit - 20}px;
+      }
+      .btn-x2 {
+        flex: 0 1 48%;
+      }
+      .btn-del,
+      .btn-reset {
+        background-color: $Desaturated-dark-blue-49;
+        box-shadow: 0px 2px 0px 2px $Desaturated-dark-blue-35;
+        color: $Light-grayish-orange;
+        font-size: 16px;
+      }
+      .btn-equal {
+        background-color: $Red;
+        box-shadow: 0px 2px 0px 2px $Dark-red;
+        color: $Light-grayish-orange;
+      }
+
+      margin-bottom: 2%;
+    }
+    @media (min-width:375px) {
+      padding: math.div(32px, 425px) * 100%;
+    }
+    @media (min-width: 768px) {
+      width: 44%;
+      margin: auto;
+      padding: math.div(32px, 768px) * 100%;
+    }
+    @media (min-width: 1024px) {
+      width: 33%;
+    }
+  }
+}
+.theme-1 {
+  @include backgroundColor($Very-dark-desaturated-blue-31);
+  .calc-title {
+    @include fontColor($Light-grayish-orange);
+  }
+  .calc-switch {
+    & > span {
+      @include fontColor($Light-grayish-orange);
+    }
+    .switch-indicators {
+      @include fontColor($Light-grayish-orange);
+    }
+    .theme-switch {
+      &::-webkit-slider-runnable-track {
+        @include backgroundColor($Very-dark-desaturated-blue-20);
+      }
+      &::-webkit-slider-thumb {
+        @include backgroundColor($Dark-red);
+      }
+      &::-webkit-slider-thumb:hover {
+        @include backgroundColor($Red);
+      }
+      // &::-moz-range-track {
+      //   background: $Very-dark-desaturated-blue-20;
+      // }
+      // &::-moz-range-thumb {
+      //   background: $Red;
+      // }
+      // &::-ms-fill-lower {
+      //   background: #3b13a9;
+      //   border: 0px solid #ffffff;
+      //   border-radius: 40px;
+      // }
+      // &::-ms-fill-upper {
+      //   background: #3b13a9;
+      //   border: 0px solid #ffffff;
+      //   border-radius: 40px;
+      //   box-shadow: 0px 0px 0px #ffffff;
+      // }
+      // &::-ms-thumb {
+      //   margin-top: 1px;
+      //   border: 1px solid #ff1919;
+      //   height: 20px;
+      //   width: 20px;
+      //   border-radius: 12px;
+      //   background: #ff3665;
+      //   cursor: pointer;
+      // }
+      // &:focus::-ms-fill-lower {
+      //   background: #3b13a9;
+      // }
+      // &:focus::-ms-fill-upper {
+      //   background: #3b13a9;
+      // }
+    }
+  }
+  .display-content {
+    @include backgroundColor($Very-dark-desaturated-blue-15);
+    @include fontColor($White);
+  }
+
+  .calc-keyboard {
+    @include backgroundColor($Very-dark-desaturated-blue-20);
+    .btn {
+      @include backgroundColor($Light-grayish-orange);
+      @include fontColor($Very-dark-grayish-blue);
+      @include boxShadow($Grayish-orange);
+      &:hover {
+        @include backgroundColor($White);
+      }
+    }
+    .btn-del,
+    .btn-reset {
+      @include backgroundColor($Desaturated-dark-blue-35);
+      @include boxShadow($Desaturated-dark-blue-35);
+      @include fontColor($Light-grayish-orange);
+      &:hover {
+        @include backgroundColor($Desaturated-dark-blue-49);
+      }
+    }
+    .btn-equal {
+      @include backgroundColor($Dark-red);
+      @include boxShadow($Dark-red);
+      @include fontColor($Light-grayish-orange);
+      &:hover {
+        @include backgroundColor($Red);
+      }
+    }
+  }
+}
+.theme-2 {
+  @include backgroundColor($Light-gray);
+  .calc-title {
+    @include fontColor($Very-dark-grayish-yellow);
+  }
+  .calc-switch {
+    & > span {
+      @include fontColor($Very-dark-grayish-yellow);
+    }
+    .switch-indicators {
+      @include fontColor($Very-dark-grayish-yellow);
+    }
+    .theme-switch {
+      &::-webkit-slider-runnable-track {
+        @include backgroundColor($Grayish-red);
+      }
+      &::-webkit-slider-thumb {
+        @include backgroundColor($Dark-orange);
+      }
+      &::-webkit-slider-thumb:hover {
+        @include backgroundColor($Orange);
+      }
+
+      // &::-moz-range-track {
+      //   background: $Very-dark-desaturated-blue-20;
+      // }
+      // &::-moz-range-thumb {
+      //   background: $Red;
+      // }
+      // &::-ms-fill-lower {
+      //   background: #3b13a9;
+      //   border: 0px solid #ffffff;
+      //   border-radius: 40px;
+      // }
+      // &::-ms-fill-upper {
+      //   background: #3b13a9;
+      //   border: 0px solid #ffffff;
+      //   border-radius: 40px;
+      //   box-shadow: 0px 0px 0px #ffffff;
+      // }
+      // &::-ms-thumb {
+      //   margin-top: 1px;
+      //   border: 1px solid #ff1919;
+      //   height: 20px;
+      //   width: 20px;
+      //   border-radius: 12px;
+      //   background: #ff3665;
+      //   cursor: pointer;
+      // }
+      // &:focus::-ms-fill-lower {
+      //   background: #3b13a9;
+      // }
+      // &:focus::-ms-fill-upper {
+      //   background: #3b13a9;
+      // }
+    }
+  }
+  .display-content {
+    @include backgroundColor($Very-light-gray);
+    @include fontColor($Very-dark-grayish-yellow);
+  }
+
+  .calc-keyboard {
+    @include backgroundColor($Grayish-red);
+    .btn {
+      @include backgroundColor($Light-grayish-yellow);
+      @include fontColor($Very-dark-grayish-yellow);
+      @include boxShadow($Dark-grayish-orange);
+      &:hover {
+        @include backgroundColor($White);
+      }
+    }
+    .btn-del,
+    .btn-reset {
+      @include backgroundColor($Very-dark-cyan);
+      @include boxShadow($Very-dark-cyan);
+      @include fontColor($White);
+      &:hover {
+        @include backgroundColor($Dark-moderate-cyan);
+      }
+    }
+    .btn-equal {
+      @include backgroundColor($Dark-orange);
+      @include boxShadow($Dark-orange);
+      @include fontColor($White);
+      &:hover {
+        @include backgroundColor($Orange);
+      }
+    }
+  }
+}
+.theme-3 {
+  @include backgroundColor($Very-dark-violet-9);
+  .calc-title {
+    @include fontColor($Light-yellow);
+  }
+  .calc-switch {
+    & > span {
+      @include fontColor($Light-yellow);
+    }
+    .switch-indicators {
+      @include fontColor($Light-yellow);
+    }
+    .theme-switch {
+      &::-webkit-slider-runnable-track {
+        @include backgroundColor($Very-dark-violet-12);
+      }
+      &::-webkit-slider-thumb {
+        @include backgroundColor($Pure-cyan);
+      }
+      &::-webkit-slider-thumb:hover {
+        @include backgroundColor($Soft-cyan);
+      }
+
+      // &::-moz-range-track {
+      //   background: $Very-dark-desaturated-blue-20;
+      // }
+      // &::-moz-range-thumb {
+      //   background: $Red;
+      // }
+      // &::-ms-fill-lower {
+      //   background: #3b13a9;
+      //   border: 0px solid #ffffff;
+      //   border-radius: 40px;
+      // }
+      // &::-ms-fill-upper {
+      //   background: #3b13a9;
+      //   border: 0px solid #ffffff;
+      //   border-radius: 40px;
+      //   box-shadow: 0px 0px 0px #ffffff;
+      // }
+      // &::-ms-thumb {
+      //   margin-top: 1px;
+      //   border: 1px solid #ff1919;
+      //   height: 20px;
+      //   width: 20px;
+      //   border-radius: 12px;
+      //   background: #ff3665;
+      //   cursor: pointer;
+      // }
+      // &:focus::-ms-fill-lower {
+      //   background: #3b13a9;
+      // }
+      // &:focus::-ms-fill-upper {
+      //   background: #3b13a9;
+      // }
+    }
+  }
+  .display-content {
+    @include backgroundColor($Very-dark-violet-12);
+    @include fontColor($Light-yellow);
+  }
+
+  .calc-keyboard {
+    @include backgroundColor($Very-dark-violet-12);
+    .btn {
+      @include backgroundColor($Very-dark-violet);
+      @include fontColor($Light-yellow);
+      @include boxShadow($Dark-magenta);
+      &:hover {
+        @include backgroundColor($Dark-violet);
+      }
+    }
+    .btn-del,
+    .btn-reset {
+      @include backgroundColor($Dark-violet);
+      @include boxShadow($Vivid-magenta);
+      @include fontColor($White);
+      &:hover {
+        @include backgroundColor($Very-dark-violet);
+      }
+    }
+    .btn-equal {
+      @include backgroundColor($Pure-cyan);
+      @include boxShadow($Soft-cyan);
+      @include fontColor($Very-dark-blue);
+      &:hover {
+        @include backgroundColor($Soft-cyan);
+      }
+    }
+  }
+}

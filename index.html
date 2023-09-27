@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Calculator app</title>
+
+  <link rel="stylesheet" href="./build/styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="calc-header">
+      <span class="calc-title">calc</span>
+      <div class="calc-switch">
+        <span>THEME</span>
+        <div class="calc-switch-wrapper">
+          <div class="switch-indicators"><span>1</span><span>2</span><span>3</span></div>
+          <input type="range" id="theme-switch" class="theme-switch" min="0" max="5" step="2.5" value="0">
+        </div>
+      </div>
+    </div>
+    <div class="calc-display">
+      <div class="display-content">399,981</div>
+    </div>
+    <div class="calc-keyboard">
+      <button class="btn btn-x1" data-value="7">7</button>
+      <button class="btn btn-x1" data-value="8">8</button>
+      <button class="btn btn-x1" data-value="9">9</button>
+      <button class="btn btn-x1 btn-del" data-value="del">DEL</button>
+      <button class="btn btn-x1" data-value="4">4</button>
+      <button class="btn btn-x1" data-value="5">5</button>
+      <button class="btn btn-x1" data-value="6">6</button>
+      <button class="btn btn-x1" data-value="+">+</button>
+      <button class="btn btn-x1" data-value="1">1</button>
+      <button class="btn btn-x1" data-value="2">2</button>
+      <button class="btn btn-x1" data-value="3">3</button>
+      <button class="btn btn-x1" data-value="-">-</button>
+      <button class="btn btn-x1" data-value=".">.</button>
+      <button class="btn btn-x1" data-value="0">0</button>
+      <button class="btn btn-x1" data-value="/">/</button>
+      <button class="btn btn-x1" data-value="X">x</button>
+      <button class="btn btn-x2 btn-reset" data-value="reset">RESET</button>
+      <button class="btn btn-x2 btn-equal" data-value="equal">=</button>
+    </div>
+
+  </div>
+
+  <script src="./js/main.js" type="module"></script>
+</body>
+
+</html>

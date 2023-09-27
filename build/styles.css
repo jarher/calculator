@@ -1,0 +1,346 @@
+@font-face {
+  font-family: League Spartan;
+  src: url("../fonts/LeagueSpartan-VariableFont_wght.ttf");
+  font-weight: 700;
+}
+html {
+  font-family: "League Spartan";
+  font-size: 32px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body .container .calc-header .calc-switch .calc-switch-wrapper, body .container {
+  display: flex;
+  flex-direction: column;
+}
+
+body .container .calc-keyboard .btn, body .container .calc-header .calc-switch, body .container .calc-header, body {
+  display: flex;
+  align-items: center;
+}
+
+body .container .calc-keyboard .btn {
+  justify-content: center;
+}
+
+body .container .calc-header .calc-switch .calc-switch-wrapper .theme-switch::-webkit-slider-thumb, body .container .calc-header .calc-switch .calc-switch-wrapper .theme-switch::-webkit-slider-runnable-track {
+  border: none;
+  cursor: pointer;
+}
+
+body .container .calc-header .calc-switch .calc-switch-wrapper .theme-switch::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 22px;
+  border-radius: 20px;
+  padding: 5%;
+}
+
+body .container .calc-header .calc-switch .calc-switch-wrapper .theme-switch::-webkit-slider-thumb {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  appearance: none;
+  margin-top: 0px;
+}
+
+body .container .calc-keyboard .btn, body .container .calc-keyboard, body .container .calc-display .display-content, body .container .calc-header .calc-switch .calc-switch-wrapper .theme-switch:focus::-webkit-slider-runnable-track, body .container .calc-header .calc-switch .calc-switch-wrapper .theme-switch::-webkit-slider-thumb, body .container .calc-header .calc-switch .calc-switch-wrapper .theme-switch::-webkit-slider-runnable-track, body .container .calc-header .calc-switch .calc-switch-wrapper .switch-indicators, body .container .calc-header .calc-switch > span, body .container .calc-header .calc-title, body {
+  transition: all 0.2s ease-in-out;
+}
+
+body {
+  position: relative;
+  background-color: hsl(222, 26%, 31%);
+  min-height: 100vh;
+}
+body .container {
+  width: 100%;
+  padding: 8.5333333333%;
+  gap: 32px;
+  height: auto;
+}
+body .container .calc-header {
+  justify-content: space-between;
+}
+body .container .calc-header .calc-title {
+  font-size: 32px;
+  color: hsl(30, 25%, 89%);
+  font-weight: 700;
+}
+body .container .calc-header .calc-switch {
+  font-size: 12px;
+  width: 45%;
+  gap: 22px;
+}
+body .container .calc-header .calc-switch > span {
+  color: hsl(30, 25%, 89%);
+  font-size: 14px;
+  margin-top: 15px;
+  font-weight: 700;
+}
+body .container .calc-header .calc-switch .calc-switch-wrapper {
+  gap: 5px;
+}
+body .container .calc-header .calc-switch .calc-switch-wrapper .switch-indicators {
+  display: flex;
+  padding: 0 11%;
+  justify-content: space-between;
+  color: hsl(30, 25%, 89%);
+}
+body .container .calc-header .calc-switch .calc-switch-wrapper .theme-switch {
+  width: 100%;
+  appearance: none;
+  background-color: transparent;
+  outline: none;
+}
+body .container .calc-header .calc-switch .calc-switch-wrapper .theme-switch::-webkit-slider-runnable-track {
+  background: hsl(223, 31%, 20%);
+}
+body .container .calc-header .calc-switch .calc-switch-wrapper .theme-switch::-webkit-slider-thumb {
+  background: hsl(6, 63%, 50%);
+}
+body .container .calc-header .calc-switch .calc-switch-wrapper .theme-switch:focus::-webkit-slider-runnable-track {
+  background: hsl(222, 26%, 31%);
+}
+body .container .calc-display .display-content {
+  text-align: right;
+  background-color: hsl(224, 36%, 15%);
+  padding: 7.5294117647%;
+  border-radius: 10px;
+  color: hsl(0, 0%, 100%);
+  font-weight: 700;
+  height: 12vh;
+}
+body .container .calc-keyboard {
+  background-color: hsl(223, 31%, 20%);
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  padding: 7.5294117647%;
+  margin-bottom: 2%;
+}
+body .container .calc-keyboard .btn {
+  background-color: hsl(30, 25%, 89%);
+  color: hsl(221, 14%, 31%);
+  font-weight: 700;
+  height: 42px;
+  border: none;
+  font-size: 22px;
+  border-radius: 7px;
+  box-shadow: 0px 2px 0px 2px hsl(28, 16%, 65%);
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+}
+body .container .calc-keyboard .btn:active {
+  box-shadow: none !important;
+  transform: scaleY(0.999);
+}
+body .container .calc-keyboard .btn-x1 {
+  flex: 0 1 22%;
+  margin-bottom: 12px;
+}
+body .container .calc-keyboard .btn-x2 {
+  flex: 0 1 48%;
+}
+body .container .calc-keyboard .btn-del,
+body .container .calc-keyboard .btn-reset {
+  background-color: hsl(225, 21%, 49%);
+  box-shadow: 0px 2px 0px 2px hsl(224, 28%, 35%);
+  color: hsl(30, 25%, 89%);
+  font-size: 16px;
+}
+body .container .calc-keyboard .btn-equal {
+  background-color: hsl(6, 63%, 50%);
+  box-shadow: 0px 2px 0px 2px hsl(6, 70%, 34%);
+  color: hsl(30, 25%, 89%);
+}
+@media (min-width: 375px) {
+  body .container {
+    padding: 7.5294117647%;
+  }
+}
+@media (min-width: 768px) {
+  body .container {
+    width: 44%;
+    margin: auto;
+    padding: 4.1666666667%;
+  }
+}
+@media (min-width: 1024px) {
+  body .container {
+    width: 33%;
+  }
+}
+
+.theme-1 {
+  background-color: hsl(222, 26%, 31%) !important;
+}
+.theme-1 .calc-title {
+  color: hsl(30, 25%, 89%) !important;
+}
+.theme-1 .calc-switch > span {
+  color: hsl(30, 25%, 89%) !important;
+}
+.theme-1 .calc-switch .switch-indicators {
+  color: hsl(30, 25%, 89%) !important;
+}
+.theme-1 .calc-switch .theme-switch::-webkit-slider-runnable-track {
+  background-color: hsl(223, 31%, 20%) !important;
+}
+.theme-1 .calc-switch .theme-switch::-webkit-slider-thumb {
+  background-color: hsl(6, 70%, 34%) !important;
+}
+.theme-1 .calc-switch .theme-switch::-webkit-slider-thumb:hover {
+  background-color: hsl(6, 63%, 50%) !important;
+}
+.theme-1 .display-content {
+  background-color: hsl(224, 36%, 15%) !important;
+  color: hsl(0, 0%, 100%) !important;
+}
+.theme-1 .calc-keyboard {
+  background-color: hsl(223, 31%, 20%) !important;
+}
+.theme-1 .calc-keyboard .btn {
+  background-color: hsl(30, 25%, 89%) !important;
+  color: hsl(221, 14%, 31%) !important;
+  box-shadow: 0px 2px 0px 2px hsl(28, 16%, 65%) !important;
+}
+.theme-1 .calc-keyboard .btn:hover {
+  background-color: hsl(0, 0%, 100%) !important;
+}
+.theme-1 .calc-keyboard .btn-del,
+.theme-1 .calc-keyboard .btn-reset {
+  background-color: hsl(224, 28%, 35%) !important;
+  box-shadow: 0px 2px 0px 2px hsl(224, 28%, 35%) !important;
+  color: hsl(30, 25%, 89%) !important;
+}
+.theme-1 .calc-keyboard .btn-del:hover,
+.theme-1 .calc-keyboard .btn-reset:hover {
+  background-color: hsl(225, 21%, 49%) !important;
+}
+.theme-1 .calc-keyboard .btn-equal {
+  background-color: hsl(6, 70%, 34%) !important;
+  box-shadow: 0px 2px 0px 2px hsl(6, 70%, 34%) !important;
+  color: hsl(30, 25%, 89%) !important;
+}
+.theme-1 .calc-keyboard .btn-equal:hover {
+  background-color: hsl(6, 63%, 50%) !important;
+}
+
+.theme-2 {
+  background-color: hsl(0, 0%, 90%) !important;
+}
+.theme-2 .calc-title {
+  color: hsl(60, 10%, 19%) !important;
+}
+.theme-2 .calc-switch > span {
+  color: hsl(60, 10%, 19%) !important;
+}
+.theme-2 .calc-switch .switch-indicators {
+  color: hsl(60, 10%, 19%) !important;
+}
+.theme-2 .calc-switch .theme-switch::-webkit-slider-runnable-track {
+  background-color: hsl(0, 5%, 81%) !important;
+}
+.theme-2 .calc-switch .theme-switch::-webkit-slider-thumb {
+  background-color: hsl(25, 99%, 27%) !important;
+}
+.theme-2 .calc-switch .theme-switch::-webkit-slider-thumb:hover {
+  background-color: hsl(25, 98%, 40%) !important;
+}
+.theme-2 .display-content {
+  background-color: hsl(0, 0%, 93%) !important;
+  color: hsl(60, 10%, 19%) !important;
+}
+.theme-2 .calc-keyboard {
+  background-color: hsl(0, 5%, 81%) !important;
+}
+.theme-2 .calc-keyboard .btn {
+  background-color: hsl(45, 7%, 89%) !important;
+  color: hsl(60, 10%, 19%) !important;
+  box-shadow: 0px 2px 0px 2px hsl(35, 11%, 61%) !important;
+}
+.theme-2 .calc-keyboard .btn:hover {
+  background-color: hsl(0, 0%, 100%) !important;
+}
+.theme-2 .calc-keyboard .btn-del,
+.theme-2 .calc-keyboard .btn-reset {
+  background-color: hsl(185, 58%, 25%) !important;
+  box-shadow: 0px 2px 0px 2px hsl(185, 58%, 25%) !important;
+  color: hsl(0, 0%, 100%) !important;
+}
+.theme-2 .calc-keyboard .btn-del:hover,
+.theme-2 .calc-keyboard .btn-reset:hover {
+  background-color: hsl(185, 42%, 37%) !important;
+}
+.theme-2 .calc-keyboard .btn-equal {
+  background-color: hsl(25, 99%, 27%) !important;
+  box-shadow: 0px 2px 0px 2px hsl(25, 99%, 27%) !important;
+  color: hsl(0, 0%, 100%) !important;
+}
+.theme-2 .calc-keyboard .btn-equal:hover {
+  background-color: hsl(25, 98%, 40%) !important;
+}
+
+.theme-3 {
+  background-color: hsl(268, 75%, 9%) !important;
+}
+.theme-3 .calc-title {
+  color: hsl(52, 100%, 62%) !important;
+}
+.theme-3 .calc-switch > span {
+  color: hsl(52, 100%, 62%) !important;
+}
+.theme-3 .calc-switch .switch-indicators {
+  color: hsl(52, 100%, 62%) !important;
+}
+.theme-3 .calc-switch .theme-switch::-webkit-slider-runnable-track {
+  background-color: hsl(268, 71%, 12%) !important;
+}
+.theme-3 .calc-switch .theme-switch::-webkit-slider-thumb {
+  background-color: hsl(176, 100%, 44%) !important;
+}
+.theme-3 .calc-switch .theme-switch::-webkit-slider-thumb:hover {
+  background-color: hsl(177, 92%, 70%) !important;
+}
+.theme-3 .display-content {
+  background-color: hsl(268, 71%, 12%) !important;
+  color: hsl(52, 100%, 62%) !important;
+}
+.theme-3 .calc-keyboard {
+  background-color: hsl(268, 71%, 12%) !important;
+}
+.theme-3 .calc-keyboard .btn {
+  background-color: hsl(268, 47%, 21%) !important;
+  color: hsl(52, 100%, 62%) !important;
+  box-shadow: 0px 2px 0px 2px hsl(290, 70%, 36%) !important;
+}
+.theme-3 .calc-keyboard .btn:hover {
+  background-color: hsl(281, 89%, 26%) !important;
+}
+.theme-3 .calc-keyboard .btn-del,
+.theme-3 .calc-keyboard .btn-reset {
+  background-color: hsl(281, 89%, 26%) !important;
+  box-shadow: 0px 2px 0px 2px hsl(285, 91%, 52%) !important;
+  color: hsl(0, 0%, 100%) !important;
+}
+.theme-3 .calc-keyboard .btn-del:hover,
+.theme-3 .calc-keyboard .btn-reset:hover {
+  background-color: hsl(268, 47%, 21%) !important;
+}
+.theme-3 .calc-keyboard .btn-equal {
+  background-color: hsl(176, 100%, 44%) !important;
+  box-shadow: 0px 2px 0px 2px hsl(177, 92%, 70%) !important;
+  color: hsl(198, 20%, 13%) !important;
+}
+.theme-3 .calc-keyboard .btn-equal:hover {
+  background-color: hsl(177, 92%, 70%) !important;
+}
+
+/*# sourceMappingURL=styles.css.map */

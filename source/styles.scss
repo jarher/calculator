@@ -137,7 +137,7 @@ body {
   position: relative;
   background-color: $Very-dark-desaturated-blue-31;
   min-height: 100vh;
-  
+
   .container {
     @extend %flex-column;
     width: 100%;
@@ -190,52 +190,14 @@ body {
               @extend %slider-thumb;
               background: $Red;
             }
-            &:focus::-webkit-slider-runnable-track {
-              @extend %transition;
-              background: $Very-dark-desaturated-blue-31;
+            &::-moz-range-track {
+              @extend %slider-track;
+              background: $Very-dark-desaturated-blue-20;
             }
-            // &::-moz-range-track {
-            //   @extend %slider-track;
-            //   background: $Very-dark-desaturated-blue-20;
-            // }
-            // &::-moz-range-thumb {
-            //   @extend %slider-thumb;
-            //   background: $Red;
-            // }
-            // &::-ms-track {
-            //   width: 100%;
-            //   height: 27px;
-            //   cursor: pointer;
-            //   background: transparent;
-            //   border-color: transparent;
-            //   color: transparent;
-            // }
-            // &::-ms-fill-lower {
-            //   background: #3b13a9;
-            //   border: 0px solid #ffffff;
-            //   border-radius: 40px;
-            // }
-            // &::-ms-fill-upper {
-            //   background: #3b13a9;
-            //   border: 0px solid #ffffff;
-            //   border-radius: 40px;
-            //   box-shadow: 0px 0px 0px #ffffff;
-            // }
-            // &::-ms-thumb {
-            //   margin-top: 1px;
-            //   border: 1px solid #ff1919;
-            //   height: 20px;
-            //   width: 20px;
-            //   border-radius: 12px;
-            //   background: #ff3665;
-            //   cursor: pointer;
-            // }
-            // &:focus::-ms-fill-lower {
-            //   background: #3b13a9;
-            // }
-            // &:focus::-ms-fill-upper {
-            //   background: #3b13a9;
-            // }
+            &::-moz-range-thumb {
+              @extend %slider-thumb;
+              background: $Red;
+            }
           }
         }
       }
@@ -302,7 +264,7 @@ body {
 
       margin-bottom: 2%;
     }
-    @media (min-width:375px) {
+    @media (min-width: 375px) {
       padding: math.div(32px, 425px) * 100%;
     }
     @media (min-width: 768px) {
@@ -337,38 +299,12 @@ body {
       &::-webkit-slider-thumb:hover {
         @include backgroundColor($Red);
       }
-      // &::-moz-range-track {
-      //   background: $Very-dark-desaturated-blue-20;
-      // }
-      // &::-moz-range-thumb {
-      //   background: $Red;
-      // }
-      // &::-ms-fill-lower {
-      //   background: #3b13a9;
-      //   border: 0px solid #ffffff;
-      //   border-radius: 40px;
-      // }
-      // &::-ms-fill-upper {
-      //   background: #3b13a9;
-      //   border: 0px solid #ffffff;
-      //   border-radius: 40px;
-      //   box-shadow: 0px 0px 0px #ffffff;
-      // }
-      // &::-ms-thumb {
-      //   margin-top: 1px;
-      //   border: 1px solid #ff1919;
-      //   height: 20px;
-      //   width: 20px;
-      //   border-radius: 12px;
-      //   background: #ff3665;
-      //   cursor: pointer;
-      // }
-      // &:focus::-ms-fill-lower {
-      //   background: #3b13a9;
-      // }
-      // &:focus::-ms-fill-upper {
-      //   background: #3b13a9;
-      // }
+      &::-moz-range-track {
+        @include backgroundColor($Very-dark-desaturated-blue-20);
+      }
+      &::-moz-range-thumb {
+        @include backgroundColor($Dark-red);
+      }
     }
   }
   .display-content {
@@ -427,39 +363,12 @@ body {
       &::-webkit-slider-thumb:hover {
         @include backgroundColor($Orange);
       }
-
-      // &::-moz-range-track {
-      //   background: $Very-dark-desaturated-blue-20;
-      // }
-      // &::-moz-range-thumb {
-      //   background: $Red;
-      // }
-      // &::-ms-fill-lower {
-      //   background: #3b13a9;
-      //   border: 0px solid #ffffff;
-      //   border-radius: 40px;
-      // }
-      // &::-ms-fill-upper {
-      //   background: #3b13a9;
-      //   border: 0px solid #ffffff;
-      //   border-radius: 40px;
-      //   box-shadow: 0px 0px 0px #ffffff;
-      // }
-      // &::-ms-thumb {
-      //   margin-top: 1px;
-      //   border: 1px solid #ff1919;
-      //   height: 20px;
-      //   width: 20px;
-      //   border-radius: 12px;
-      //   background: #ff3665;
-      //   cursor: pointer;
-      // }
-      // &:focus::-ms-fill-lower {
-      //   background: #3b13a9;
-      // }
-      // &:focus::-ms-fill-upper {
-      //   background: #3b13a9;
-      // }
+      &::-moz-range-track {
+        @include backgroundColor($Grayish-red);
+      }
+      &::-moz-range-thumb {
+        @include backgroundColor($Dark-orange);
+      }
     }
   }
   .display-content {
@@ -518,39 +427,12 @@ body {
       &::-webkit-slider-thumb:hover {
         @include backgroundColor($Soft-cyan);
       }
-
-      // &::-moz-range-track {
-      //   background: $Very-dark-desaturated-blue-20;
-      // }
-      // &::-moz-range-thumb {
-      //   background: $Red;
-      // }
-      // &::-ms-fill-lower {
-      //   background: #3b13a9;
-      //   border: 0px solid #ffffff;
-      //   border-radius: 40px;
-      // }
-      // &::-ms-fill-upper {
-      //   background: #3b13a9;
-      //   border: 0px solid #ffffff;
-      //   border-radius: 40px;
-      //   box-shadow: 0px 0px 0px #ffffff;
-      // }
-      // &::-ms-thumb {
-      //   margin-top: 1px;
-      //   border: 1px solid #ff1919;
-      //   height: 20px;
-      //   width: 20px;
-      //   border-radius: 12px;
-      //   background: #ff3665;
-      //   cursor: pointer;
-      // }
-      // &:focus::-ms-fill-lower {
-      //   background: #3b13a9;
-      // }
-      // &:focus::-ms-fill-upper {
-      //   background: #3b13a9;
-      // }
+      &::-moz-range-track {
+        @include backgroundColor($Very-dark-violet-12);
+      }
+      &::-moz-range-thumb {
+        @include backgroundColor($Pure-cyan);
+      }
     }
   }
   .display-content {

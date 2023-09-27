@@ -11,7 +11,7 @@ const MathFunctions = (() => {
     this.addition = () =>
       (values = [values.reduce((acc, current) => acc + current, 0)]);
     this.substraction = () =>
-      (values = [values.reduce((acc, current) => -current - acc, 0)]);
+      (values = [values.reduce((acc, current) => acc === 0? current - acc : acc - current, 0)]);
     this.multiplication = () =>
       (values = [values.reduce((acc, current) => acc * current, 1)]);
     this.division = () =>
@@ -74,7 +74,7 @@ const MathFunctions = (() => {
   function catchValue(e) {
     try {
       const value = e.target.dataset.value;
-    
+
       if (value === "+") {
         values.push(number);
         if (operator === "+") {
@@ -101,11 +101,11 @@ const MathFunctions = (() => {
           string = values[0].toString().concat(operator);
         } else {
           resolveOperation(operator ? operator : value);
-
+          console.log(values)
           string =
             values.length > 0
               ? values[0].toString().concat(value)
-              : string + value;
+              : value;
           displayRender(string);
           operator = "-";
         }
@@ -148,7 +148,7 @@ const MathFunctions = (() => {
       }
       if (value === "equal") {
         values.push(number);
-        if(operator) resolveOperation(operator);
+        if (operator) resolveOperation(operator);
         if (values[0] === Infinity) {
           resetValues();
           throw new Error("Undefined");

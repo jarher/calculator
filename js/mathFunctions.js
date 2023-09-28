@@ -11,7 +11,12 @@ const MathFunctions = (() => {
     this.addition = () =>
       (values = [values.reduce((acc, current) => acc + current, 0)]);
     this.substraction = () =>
-      (values = [values.reduce((acc, current) => acc === 0? current - acc : acc - current, 0)]);
+      (values = [
+        values.reduce(
+          (acc, current) => (acc === 0 ? current - acc : acc - current),
+          0
+        ),
+      ]);
     this.multiplication = () =>
       (values = [values.reduce((acc, current) => acc * current, 1)]);
     this.division = () =>
@@ -101,11 +106,9 @@ const MathFunctions = (() => {
           string = values[0].toString().concat(operator);
         } else {
           resolveOperation(operator ? operator : value);
-          console.log(values)
+          console.log(values);
           string =
-            values.length > 0
-              ? values[0].toString().concat(value)
-              : value;
+            values.length > 0 ? values[0].toString().concat(value) : value;
           displayRender(string);
           operator = "-";
         }
@@ -163,12 +166,15 @@ const MathFunctions = (() => {
         displayRender("0");
       }
       if (value === "del") {
+        values = [];
         string = string.slice(0, string.length - 1);
-        if (string === "") {
-          resetValues();
+        if (string.includes(operator)) {
+          num = "";
+          values = [Number.parseFloat(string.replace(operator, ""))];
         } else {
-          number = operator === "+" || operator === "-" ? 0 : 1;
+          number = Number.parseFloat(string.replace(operator, ""));
         }
+
         displayRender(string === "" ? 0 : string);
       }
       if (/[0-9.]/.test(value)) {
